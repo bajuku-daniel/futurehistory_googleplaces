@@ -1,0 +1,5 @@
+name = Futurehistory Googleplaces Search   
+description = Provides googleplaces Search Blocks for the futurehistoy entdecken map.
+package = Futurehistory
+core = 7.x
+dependencies[] = futurehistory_entdecken

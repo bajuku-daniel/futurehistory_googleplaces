@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Views style plugin for futurehistory.
+ */
+
+/**
+ * Implements FUTUREHISTORY hook_block_info for the google places API().
+ */
+function futurehistory_googleplaces_block_info() {
+  $blocks = array();
+  //block for the frontpage 
+  $blocks['places_startseite'] = array(
+    'info' => t('Future Histoy Places autocomplete Startseit'),
+  );
+  //block for the entdecken-map page
+  $blocks['places_map'] = array(
+    'info' => t('Future Histoy Places autocomplete only mapPage'),
+  );
+  //block for all other pages
+  $blocks['places_pages'] = array(
+    'info' => t('Future Histoy Places autocomplete all other pages'),
+  );
+
+  return $blocks;
+}
+
+function futurehistory_googleplaces_block_view($delta = '') {
+  $block = array();
+  switch ($delta) {
+    case 'places_startseite':
+      $block = array(
+        'subject' => t('Google Places Suche Startseite'),
+        'content' => array(
+          '#markup' => '<div class="places_box_startseite"><span class="places_box_startseite_button col-md-4 col-md-offset-1 col-sm-6 col-sm-offset-3 col-xs-10" href="#">Starte eine virtuelle Zeitreise:</span><div class="search_wrapper col-md-6 col-md-offset-0 col-sm-7 col-sm-offset-3 col-xs-11"><i class="material-icons">search</i><input class="places-autocomplete" id="places-autocomplete-start" type="text" placeholder="Welchen Ort entdecken?"></input></div></div>',
+          '#attached' => array(
+            'css' => array(
+              drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.css',
+            ),
+            'js' => array(
+              'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHmLzcxDDh2_JJ2oB6ma8YwMFiohtZC2c&signed_in=false&libraries=places' => array(
+                 'type' => 'external',
+              ),
+              drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.js',
+            ),
+            'library' => array(
+              array('system', 'jquery.cookie'),
+            ),
+          ),
+        ),
+      );
+    break;
+    case 'places_map':
+      $block = array(
+        'subject' => t('Google Places Suche Startseite'),
+        'content' => array(
+          '#markup' => '<div class="places_box_map"><div class="search_wrapper"><i class="material-icons">search</i><input class="places-autocomplete" id="places-autocomplete-map" type="text" placeholder="Welchen Ort entdecken?"></input></div></div>',
+          '#attached' => array(
+            'css' => array(
+              drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.css',
+            ),
+            'js' => array(
+
+            // we get tze google JS with places API from the "futurehistory_entdecken" module
+            //
+            //  'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHmLzcxDDh2_JJ2oB6ma8YwMFiohtZC2c&signed_in=true&libraries=places' => array(
+            //    'type' => 'external',
+            //  ),
+            //  drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.js',
+            ),
+            'library' => array(
+              array('system', 'jquery.cookie'),
+            ),
+          ),
+        ),
+      );
+    break;
+
+    case 'places_pages':
+      $block = array(
+        'subject' => t('Google Places Suche Startseite'),
+        'content' => array(
+          '#markup' => '<div class="places_box_page"><div class="search_wrapper"><i class="material-icons">search</i><input class="places-autocomplete" id="places-autocomplete-page" type="text" placeholder="Welchen Ort entdecken?"></input></div></div>',
+          '#attached' => array(
+            'css' => array(
+              drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.css',
+            ),
+            'js' => array(
+              'https://maps.googleapis.com/maps/api/js?key=AIzaSyCHmLzcxDDh2_JJ2oB6ma8YwMFiohtZC2c&signed_in=false&libraries=places,geometry,drawing' => array(
+                'type' => 'external',
+              ),
+              drupal_get_path('module', 'futurehistory_googleplaces') . '/futurehistory_googleplaces.js',
+            ),
+            'library' => array(
+              array('system', 'jquery.cookie'),
+            ),
+          ),
+        ),
+      );
+    break;
+
+  }
+  return $block;
+}
+
+
+
+

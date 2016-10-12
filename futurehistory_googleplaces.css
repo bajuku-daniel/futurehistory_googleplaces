@@ -1,0 +1,73 @@
+/* -------------------------------------------------------------------- 
+ * Futurehistory Googleplaces Frontpage base Layout
+ * ------------------------------------------------------------------ */
+#block-futurehistory-googleplaces-places-startseite {
+  display:block;
+  text-align:center;
+}
+#block-futurehistory-googleplaces-places-startseite #places-autocomplete-start {
+  font-size:24px;
+  padding: 10px 5px;
+  padding-left:50px;
+  border: medium none;
+  background:none;
+  width:100%;
+}
+#block-futurehistory-googleplaces-places-startseite i {
+  font-size: 30px;
+  left: 10px;
+  position: absolute;
+  top: 12px;
+  margin-left:5px;
+}
+
+#block-futurehistory-googleplaces-places-startseite .places_box_startseite{
+  margin:auto;  
+  position:relative;
+  padding-top:50px;
+}
+
+#block-futurehistory-googleplaces-places-startseite .places_box_startseite .search_wrapper{
+  background-color: rgba(255, 255, 255, 0.81);
+  display:block;
+  padding:0;
+}
+
+#block-futurehistory-googleplaces-places-startseite .places_box_startseite .places_box_startseite_button{
+  background-color:rgba(23, 91, 162, 0.62);
+  color:#fff;
+  font-size:24px; 
+  padding:10px;
+  text-decoration: none !important; 
+  font-weight: 300;
+}
+
+/*#block-futurehistory-googleplaces-places-startseite .places_box_startseite .places_box_startseite_button:hover, #block-futurehistory-googleplaces-places-startseite .places_box_startseite .places_box_startseite_button:active {
+  background-color:#954e94;
+}*/
+
+.places_box_map i, .places_box_page i {
+  font-size: 30px;
+  left: 10px;
+  position: absolute;
+  top: 10px;
+  margin-left:5px;
+}
+
+.places_box_map .search_wrapper, .places_box_page .search_wrapper {
+  display:block;
+  padding:0;
+  position:relative;
+}
+
+.places_box_map #places-autocomplete-map, .places_box_page #places-autocomplete-page {
+  font-size:20px;
+  padding: 10px 5px;
+  padding-left:50px;
+  border: medium none;
+  border-left: 1px solid #b0a9a9;
+  background:none;
+  width:100%;
+  position:relative;
+}
+
